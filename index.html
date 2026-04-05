@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      background-color: #ffe6f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+       border-radius:100px ;
+      position: relative;
+     animation: moveImage 3s infinite alternate;
+    }
+    @keyframes moveImage
+   {
+      from { left: 0; }
+      to { left: 300px; }
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: float 5s infinite;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    .heart:after {
+      top: 0;
+      left: -10px;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+  <img src="cuties.jpeg" alt="Cute Character">
+  <h1>Happy Birthday, Baby Girl!</h1>
+  <p>Today I don't have any expensive gifts to give you...</p>
+  <p>All I can gift you is my:</p>
+  <ul>
+    <li>Loyalty</li>
+    <li>Respect</li>
+    <li>Love</li>
+    <li>Time</li>
+    <li>Care</li>
+    <li>Priority</li>
+    <li>Support</li>
+  </ul>
+  <p>Don't overthink, I'm all yours today, tomorrow, and forever ❤️</p>
+  <script>
+                         
+    const confetti = document.getElementById('confetti');
+    for (let i = 0; i < 100; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.width = Math.random() * 10 + 'px';
+      particle.style.height = Math.random() * 10 + 'px';
+      particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      particle.style.animation = `float ${Math.random() * 3 + 2}s infinite`;
+      confetti.appendChild(particle);
+    }
+                      
+    for (let i = 0; i < 10; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
